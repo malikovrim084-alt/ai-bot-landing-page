@@ -69,7 +69,7 @@ export default function ResultsSection() {
               </div>
               <div className="mt-4 p-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg text-center">
                 <p className="text-sm font-semibold mb-1">РЕЗУЛЬТАТ</p>
-                <p className="text-3xl font-bold">+157% конверсии</p>
+                <p className="text-3xl font-bold">+75% конверсии</p>
                 <p className="text-sm mt-1">В 2.5 раза больше полученных контактов!</p>
               </div>
             </Card>
@@ -84,7 +84,7 @@ export default function ResultsSection() {
                 Попробуйте AI-бота прямо сейчас!
               </h3>
               <p className="text-lg mb-6 text-blue-100">
-                Тестовый бот продавца-консультанта автосалона уже работает в Telegram
+                Тестовый бот продавец-консультант автосалона уже работает в Telegram
               </p>
               <Button 
                 size="lg" 
