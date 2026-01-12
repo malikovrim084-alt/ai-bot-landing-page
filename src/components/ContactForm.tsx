@@ -47,7 +47,7 @@ export default function ContactForm() {
 
   if (isSuccess) {
     return (
-      <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto">
+      <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto animate-scale-in">
         <div className="text-center">
           <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
             <Icon name="Check" className="text-green-600" size={32} />
@@ -60,7 +60,7 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto">
+    <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto animate-scale-in">
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <input
