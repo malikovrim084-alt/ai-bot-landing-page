@@ -356,8 +356,8 @@ export default function Index() {
 
             <div className="pt-4 border-t border-slate-700">
               <p className="font-semibold text-xl mb-2">Рим Маликов</p>
-              <a href="http://khurma.pro/ai" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-blue-300 transition-colors text-lg">
-                khurma.pro/ai
+              <a href="https://khurma.pro" target="_blank" rel="noopener noreferrer" className="text-primary hover:text-blue-300 transition-colors text-lg">
+                khurma.pro
               </a>
             </div>
 
