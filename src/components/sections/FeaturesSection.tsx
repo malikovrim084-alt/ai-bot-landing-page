@@ -51,10 +51,10 @@ export default function FeaturesSection() {
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center">
               {[
                 { name: 'Сайт', items: ['Jivo', 'Tilda'] },
-                { name: 'Маркетплейсы', items: ['Авито', 'OZON'] },
+                { name: 'Авто-площадки', items: ['Авито', 'Авто.ру', 'Дром.ру'] },
                 { name: 'Мессенджеры', items: ['WhatsApp', 'Telegram'] },
-                { name: 'CRM', items: ['Bitrix24'] },
-                { name: 'Соцсети', items: ['VK'] }
+                { name: 'CRM', items: ['amoCRM', 'Bitrix24'] },
+                { name: 'Соцсети', items: ['VK', 'Instagram'] }
               ].map((group, index) => (
                 <div key={index} className="p-4">
                   <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3">
