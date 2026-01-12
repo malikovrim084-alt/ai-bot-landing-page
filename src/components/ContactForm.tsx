@@ -60,48 +60,82 @@ export default function ContactForm() {
   }
 
   return (
-    <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto animate-scale-in">
+    <Card className="p-8 bg-gradient-to-br from-white to-blue-50 shadow-2xl border-2 border-primary/20 max-w-md mx-auto animate-scale-in">
+      <div className="mb-6 text-center">
+        <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+          <Icon name="Rocket" className="text-primary" size={32} />
+        </div>
+        <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
+          Получите бесплатное ДЕМО
+        </h3>
+        <p className="text-muted-foreground">
+          Свяжемся в течение 15 минут
+        </p>
+      </div>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <input
-            type="text"
-            placeholder="Ваше ФИО"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground"
-          />
+          <label className="block text-sm font-semibold text-foreground mb-2">
+            Ваше ФИО
+          </label>
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2">
+              <Icon name="User" className="text-muted-foreground" size={20} />
+            </div>
+            <input
+              type="text"
+              placeholder="Иван Иванов"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+              className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all text-foreground font-medium"
+            />
+          </div>
         </div>
         <div>
-          <input
-            type="tel"
-            placeholder="Номер телефона"
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-            required
-            className="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-foreground"
-          />
+          <label className="block text-sm font-semibold text-foreground mb-2">
+            Номер телефона
+          </label>
+          <div className="relative">
+            <div className="absolute left-4 top-1/2 -translate-y-1/2">
+              <Icon name="Phone" className="text-muted-foreground" size={20} />
+            </div>
+            <input
+              type="tel"
+              placeholder="+7 999 123-45-67"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              required
+              className="w-full pl-12 pr-4 py-4 rounded-lg border-2 border-slate-200 focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none transition-all text-foreground font-medium"
+            />
+          </div>
         </div>
         {error && (
-          <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
-            {error}
+          <div className="p-4 bg-red-50 border-2 border-red-200 rounded-lg text-red-600 text-sm font-medium flex items-start gap-2">
+            <Icon name="AlertCircle" size={20} className="flex-shrink-0 mt-0.5" />
+            <span>{error}</span>
           </div>
         )}
         <Button
           type="submit"
           size="lg"
           disabled={isSubmitting}
-          className="w-full text-lg py-6 font-bold"
+          className="w-full text-lg py-6 font-bold shadow-lg hover:shadow-xl transition-all"
         >
           {isSubmitting ? (
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2">
               <Icon name="Loader2" className="animate-spin" size={20} />
               Отправка...
             </span>
           ) : (
-            'ОСТАВИТЬ ЗАЯВКУ'
+            <span className="flex items-center justify-center gap-2">
+              <Icon name="Send" size={20} />
+              ПОЛУЧИТЬ БЕСПЛАТНОЕ ДЕМО
+            </span>
           )}
         </Button>
+        <p className="text-xs text-center text-muted-foreground mt-4">
+          Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+        </p>
       </form>
     </Card>
   );
