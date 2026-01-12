@@ -119,16 +119,16 @@ export default function ContactForm() {
           type="submit"
           size="lg"
           disabled={isSubmitting}
-          className="w-full text-lg py-6 font-bold shadow-lg hover:shadow-xl transition-all"
+          className="w-full text-sm py-6 font-bold shadow-lg hover:shadow-xl transition-all"
         >
           {isSubmitting ? (
             <span className="flex items-center justify-center gap-2">
-              <Icon name="Loader2" className="animate-spin" size={20} />
+              <Icon name="Loader2" className="animate-spin" size={18} />
               Отправка...
             </span>
           ) : (
             <span className="flex items-center justify-center gap-2">
-              <Icon name="Send" size={20} />
+              <Icon name="Send" size={18} />
               ПОЛУЧИТЬ БЕСПЛАТНОЕ ДЕМО
             </span>
           )}

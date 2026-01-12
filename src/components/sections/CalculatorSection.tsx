@@ -72,8 +72,8 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
                 <span className="text-2xl font-bold text-primary">+{stats.sales} авто</span>
               </div>
               <div className="flex items-center justify-between p-6 bg-primary text-white rounded-lg">
-                <span className="font-bold text-lg">Дополнительная прибыль</span>
-                <span className="text-3xl font-bold">{stats.profit.toLocaleString()} ₽/мес</span>
+                <span className="font-bold text-sm md:text-base">Дополнительная прибыль</span>
+                <span className="text-xl md:text-2xl font-bold">{stats.profit.toLocaleString()} ₽/мес</span>
               </div>
             </div>
           </Card>
