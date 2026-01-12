@@ -10,14 +10,14 @@ export default function HeroSection() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="text-center md:text-left animate-fade-in">
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-lg">
-                <Icon name="Zap" size={16} />
-                <span>Ответ за 10 секунд • Работает 24/7</span>
+                <Icon name="Car" size={16} />
+                <span>Для автосалонов • Отвечает за 10 секунд • 24/7</span>
               </div>
               <h1 className="font-heading text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent mb-6 leading-tight">
-                AI-бот 24/7 — ваш отдел продаж, который не спит
+                AI-бот для автосалонов — продает машины 24/7
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-                Превращаем чаты в деньги. Отвечает за 10 секунд. Работает, пока вы отдыхаете.
+                Консультирует клиентов по авто, отвечает на вопросы о комплектациях и ценах. Записывает на тест-драйв, пока менеджеры спят.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <Button 

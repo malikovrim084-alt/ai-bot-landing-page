@@ -12,18 +12,18 @@ export default function FeaturesSection() {
                 ⚡ ВОЗМОЖНОСТИ
               </span>
               <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-                Ваш круглосуточный помощник по продажам
+                Что умеет AI-консультант автосалона
               </h2>
               <p className="text-center text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
-                На базе 4 AI-моделей (OpenAI, DeepSeek и др.) • Обучается на ваших данных • Читает файлы, сайты, таблицы
+                Обучен на вашем автопарке • Знает все комплектации и цены • Консультирует как опытный менеджер
               </p>
             </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                { icon: 'Zap', title: 'Отвечает за 10 сек 24/7', desc: 'Мгновенная реакция на любой запрос в любое время' },
-                { icon: 'MessageSquare', title: 'Консультирует как лучший менеджер', desc: 'Отвечает на вопросы и помогает принять решение' },
-                { icon: 'Users', title: 'Собирает контакты', desc: 'Автоматически квалифицирует и сохраняет лиды' },
-                { icon: 'TrendingUp', title: 'Увеличивает конверсию на 50-100%', desc: 'Доказанный рост продаж и заявок' }
+                { icon: 'Car', title: 'Консультирует по авто', desc: 'Рассказывает о комплектациях, ценах, акциях и трейд-ин' },
+                { icon: 'Calendar', title: 'Записывает на тест-драйв', desc: 'Собирает контакты и бронирует удобное время' },
+                { icon: 'MessageSquare', title: 'Отвечает за 10 секунд', desc: 'Клиент не ждет — получает ответ мгновенно, даже ночью' },
+                { icon: 'TrendingUp', title: 'Увеличивает продажи на 157%', desc: 'Реальная статистика конверсии наших клиентов' }
               ].map((item, index) => (
                 <Card 
                   key={index} 

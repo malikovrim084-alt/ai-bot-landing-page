@@ -7,10 +7,10 @@ export default function CTASection() {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-            Готовы увеличить прибыль?
+            Готовы продавать больше машин?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Оставьте заявку и я свяжусь с вами в течение 15 минут!
+            Получите бесплатное демо AI-бота для вашего автосалона!
           </p>
           
           <ContactForm />
@@ -26,9 +26,9 @@ export default function CTASection() {
               </p>
             </div>
             <div className="p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20">
-              <Icon name="Zap" className="mx-auto mb-3 text-yellow-300" size={32} />
+              <Icon name="Clock" className="mx-auto mb-3 text-yellow-300" size={32} />
               <p className="font-semibold text-lg">
-                💡 Интрига: В примерах — только ночные часы... а если 24/7?
+                Работает 24/7 — не теряйте клиентов по ночам и выходным!
               </p>
             </div>
           </div>

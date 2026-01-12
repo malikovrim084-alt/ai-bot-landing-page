@@ -8,10 +8,10 @@ export default function ResultsSection() {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-heading text-3xl md:text-5xl font-bold text-center mb-4">
-            Реальные результаты наших клиентов
+            Реальные результаты автосалонов
           </h2>
           <p className="text-center text-muted-foreground mb-12 text-lg">
-            Доказанный рост конверсии и количества обращений с AI-ботом
+            Доказанный рост продаж и записей на тест-драйв с AI-ботом
           </p>
           
           <div className="grid md:grid-cols-2 gap-8 mb-16">
@@ -36,7 +36,7 @@ export default function ResultsSection() {
                   <span className="text-2xl font-bold text-red-600">0,14%</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
-                  <span className="font-semibold">Чатов с телефоном:</span>
+                  <span className="font-semibold">Записей на тест-драйв:</span>
                   <span className="text-xl font-bold">4-5</span>
                 </div>
               </div>
@@ -63,14 +63,14 @@ export default function ResultsSection() {
                   <span className="text-2xl font-bold text-green-600">0,36%</span>
                 </div>
                 <div className="flex justify-between items-center p-3 bg-slate-50 rounded-lg">
-                  <span className="font-semibold">Чатов с телефоном:</span>
+                  <span className="font-semibold">Записей на тест-драйв:</span>
                   <span className="text-xl font-bold">11-12</span>
                 </div>
               </div>
               <div className="mt-4 p-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-lg text-center">
                 <p className="text-sm font-semibold mb-1">РЕЗУЛЬТАТ</p>
                 <p className="text-3xl font-bold">+157% конверсии</p>
-                <p className="text-sm mt-1">В 2.5 раза больше обращений!</p>
+                <p className="text-sm mt-1">В 2.5 раза больше записей на тест-драйв!</p>
               </div>
             </Card>
           </div>

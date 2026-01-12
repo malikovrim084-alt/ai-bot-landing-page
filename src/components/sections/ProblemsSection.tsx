@@ -11,15 +11,15 @@ export default function ProblemsSection() {
               СТОП! Проверьте себя
             </span>
             <h2 className="font-heading text-3xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent animate-slide-up">
-              Ваш бизнес теряет деньги?
+              Ваш автосалон теряет клиентов?
             </h2>
           </div>
           <div className="grid md:grid-cols-2 gap-6 mb-8">
             {[
-              { icon: 'Moon', text: 'Лиды «умирают» ночью и в выходные' },
-              { icon: 'Clock', text: 'Клиенты уходят к конкурентам из-за медленного ответа' },
-              { icon: 'TrendingDown', text: 'Низкая конверсия из чата в заявку' },
-              { icon: 'AlertCircle', text: '80% потенциала чатов не используется' }
+              { icon: 'Moon', text: 'Клиенты пишут ночью — а менеджеры спят. Утром покупают у конкурентов' },
+              { icon: 'Clock', text: 'Вопросы о комплектациях и ценах остаются без ответа часами' },
+              { icon: 'TrendingDown', text: 'Менеджеры не успевают обработать все заявки на тест-драйв' },
+              { icon: 'AlertCircle', text: 'Теряете 70% горячих клиентов из-за медленного ответа' }
             ].map((item, index) => (
               <Card 
                 key={index} 
@@ -36,8 +36,8 @@ export default function ProblemsSection() {
             ))}
           </div>
           <div className="text-center mt-8">
-            <p className="text-2xl font-bold text-red-600 mb-2">Узнали себя?</p>
-            <p className="text-muted-foreground">Пора что-то менять!</p>
+            <p className="text-2xl font-bold text-red-600 mb-2">Знакомая ситуация?</p>
+            <p className="text-muted-foreground">Каждый день ваши конкуренты получают этих клиентов!</p>
           </div>
         </div>
       </div>
