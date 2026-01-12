@@ -205,6 +205,33 @@ export default function Index() {
                 </div>
               </Card>
             </div>
+
+            <Card className="mt-12 p-8 bg-gradient-to-r from-blue-600 to-primary text-white text-center">
+              <div className="max-w-2xl mx-auto">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
+                  <Icon name="MessageCircle" className="text-white" size={32} />
+                </div>
+                <h3 className="font-heading text-2xl md:text-3xl font-bold mb-3">
+                  Попробуйте AI-бота прямо сейчас!
+                </h3>
+                <p className="text-lg mb-6 text-blue-100">
+                  Тестовый бот продавца-консультанта автосалона уже работает в Telegram
+                </p>
+                <Button 
+                  size="lg" 
+                  className="text-lg px-10 py-6 bg-white text-primary hover:bg-blue-50 shadow-xl font-bold"
+                  asChild
+                >
+                  <a href="https://t.me/khurmapro_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <Icon name="Send" size={20} />
+                    ОТКРЫТЬ БОТА В TELEGRAM
+                  </a>
+                </Button>
+                <p className="text-sm mt-4 text-blue-100">
+                  Посмотрите, как бот отвечает на вопросы и собирает контакты
+                </p>
+              </div>
+            </Card>
           </div>
         </div>
       </section>
