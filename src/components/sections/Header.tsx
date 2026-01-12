@@ -10,7 +10,7 @@ export default function Header() {
             <img 
               src="https://cdn.poehali.dev/files/Основной знак на белом фоне.png" 
               alt="Khurma Marketing" 
-              className="h-12 md:h-16 hover:opacity-80 transition-opacity"
+              className="h-14 md:h-20 hover:opacity-80 transition-opacity"
             />
           </a>
           <div className="flex items-center gap-4">
