@@ -22,19 +22,44 @@ export default function Index() {
 
   return (
     <div className="min-h-screen bg-white">
+      <header className="py-4 bg-white shadow-sm sticky top-0 z-50">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <img 
+              src="https://cdn.poehali.dev/files/Основной знак на белом фоне.png" 
+              alt="Khurma Marketing" 
+              className="h-12 md:h-16"
+            />
+            <div className="flex items-center gap-4">
+              <a href="tel:+79870266416" className="hidden md:flex items-center gap-2 text-foreground hover:text-primary transition-colors font-semibold">
+                <Icon name="Phone" size={20} />
+                +7 987 026 6416
+              </a>
+              <Button 
+                size="sm"
+                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+                className="animate-pulse hover:animate-none"
+              >
+                Заказать демо
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div className="text-center md:text-left animate-fade-in">
-                <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-blue-600 text-white px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-lg">
                   <Icon name="Zap" size={16} />
-                  <span>Ответ за 10 секунд 24/7</span>
+                  <span>Ответ за 10 секунд • Работает 24/7</span>
                 </div>
-                <h1 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-6 leading-tight">
+                <h1 className="font-heading text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent mb-6 leading-tight">
                   AI-бот 24/7 — ваш отдел продаж, который не спит
                 </h1>
-                <p className="text-lg md:text-xl text-muted-foreground mb-8">
+                <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
                   Превращаем чаты в деньги. Отвечает за 10 секунд. Работает, пока вы отдыхаете.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -63,9 +88,14 @@ export default function Index() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-center mb-12 animate-slide-up">
-              Ваш бизнес теряет деньги?
-            </h2>
+            <div className="text-center mb-12">
+              <span className="inline-block bg-red-100 text-red-600 px-4 py-2 rounded-full text-sm font-bold mb-4">
+                СТОП! Проверьте себя
+              </span>
+              <h2 className="font-heading text-3xl md:text-5xl font-bold bg-gradient-to-r from-red-600 to-orange-500 bg-clip-text text-transparent animate-slide-up">
+                Ваш бизнес теряет деньги?
+              </h2>
+            </div>
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {[
                 { icon: 'Moon', text: 'Лиды «умирают» ночью и в выходные' },
@@ -75,19 +105,22 @@ export default function Index() {
               ].map((item, index) => (
                 <Card 
                   key={index} 
-                  className="p-6 hover:shadow-lg transition-all duration-300 animate-scale-in border-l-4 border-l-primary"
+                  className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 animate-scale-in border-l-4 border-l-red-500 bg-gradient-to-r from-white to-red-50"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon name={item.icon as any} className="text-primary" size={24} />
+                    <div className="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0 shadow-md">
+                      <Icon name={item.icon as any} className="text-red-600" size={26} />
                     </div>
-                    <p className="text-lg text-foreground font-medium">{item.text}</p>
+                    <p className="text-lg text-foreground font-semibold leading-relaxed pt-2">{item.text}</p>
                   </div>
                 </Card>
               ))}
             </div>
-            <p className="text-center text-xl font-semibold text-primary">Узнали себя?</p>
+            <div className="text-center mt-8">
+              <p className="text-2xl font-bold text-red-600 mb-2">Узнали себя?</p>
+              <p className="text-muted-foreground">Пора что-то менять!</p>
+            </div>
           </div>
         </div>
       </section>
@@ -169,12 +202,17 @@ export default function Index() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-5xl font-bold text-center mb-4">
-              Ваш круглосуточный помощник по продажам
-            </h2>
-            <p className="text-center text-muted-foreground mb-12 text-lg">
-              На базе 4 AI-моделей (OpenAI, DeepSeek и др.) • Обучается на ваших данных • Читает файлы, сайты, таблицы
-            </p>
+            <div className="text-center mb-12">
+              <span className="inline-block bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-bold mb-4">
+                ⚡ ВОЗМОЖНОСТИ
+              </span>
+              <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
+                Ваш круглосуточный помощник по продажам
+              </h2>
+              <p className="text-center text-muted-foreground text-lg max-w-3xl mx-auto leading-relaxed">
+                На базе 4 AI-моделей (OpenAI, DeepSeek и др.) • Обучается на ваших данных • Читает файлы, сайты, таблицы
+              </p>
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 { icon: 'Zap', title: 'Отвечает за 10 сек 24/7', desc: 'Мгновенная реакция на любой запрос в любое время' },
