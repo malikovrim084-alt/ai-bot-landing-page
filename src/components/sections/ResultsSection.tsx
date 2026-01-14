@@ -91,7 +91,17 @@ export default function ResultsSection() {
                 className="text-lg px-10 py-6 bg-white text-primary hover:bg-blue-50 shadow-xl font-bold"
                 asChild
               >
-                <a href="https://t.me/khurmapro_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a 
+                  href="https://t.me/khurmapro_bot" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).ym) {
+                      (window as any).ym(106250852, 'reachGoal', 'click_try_bot_results');
+                    }
+                  }}
+                >
                   <Icon name="Send" size={20} />
                   ОТКРЫТЬ БОТА В TELEGRAM
                 </a>

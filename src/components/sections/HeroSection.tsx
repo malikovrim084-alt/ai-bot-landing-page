@@ -24,7 +24,17 @@ export default function HeroSection() {
                 className="px-6 py-5"
                 asChild
               >
-                <a href="https://t.me/khurmapro_bot" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                <a 
+                  href="https://t.me/khurmapro_bot" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex items-center gap-2"
+                  onClick={() => {
+                    if (typeof window !== 'undefined' && (window as any).ym) {
+                      (window as any).ym(106250852, 'reachGoal', 'click_try_bot_hero');
+                    }
+                  }}
+                >
                   <Icon name="MessageCircle" size={18} />
                   Попробовать бота
                 </a>
@@ -33,7 +43,12 @@ export default function HeroSection() {
                 size="default" 
                 variant="outline" 
                 className="px-6 py-5"
-                onClick={() => document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).ym) {
+                    (window as any).ym(106250852, 'reachGoal', 'click_calculate_profit');
+                  }
+                  document.getElementById('calculator')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 Рассчитать прибыль
               </Button>

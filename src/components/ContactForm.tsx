@@ -31,6 +31,10 @@ export default function ContactForm() {
       const data = await response.json();
 
       if (response.ok && data.success) {
+        // Цель Яндекс.Метрики - успешная отправка формы
+        if (typeof window !== 'undefined' && (window as any).ym) {
+          (window as any).ym(106250852, 'reachGoal', 'form_submit_success');
+        }
         setIsSuccess(true);
         setName('');
         setPhone('');
