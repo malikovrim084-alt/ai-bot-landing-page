@@ -24,6 +24,7 @@ export default function LiveChat() {
   const [userPhone, setUserPhone] = useState('');
   const [isStarted, setIsStarted] = useState(false);
   const [isSending, setIsSending] = useState(false);
+  const [sessionId, setSessionId] = useState(`session-${Date.now()}`);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
@@ -45,9 +46,10 @@ export default function LiveChat() {
   const handleSendMessage = async () => {
     if (!inputText.trim() || isSending) return;
 
+    const userMessageText = inputText;
     const newMessage: Message = {
       id: Date.now().toString(),
-      text: inputText,
+      text: userMessageText,
       sender: 'user',
       timestamp: new Date()
     };
@@ -57,8 +59,49 @@ export default function LiveChat() {
     setIsSending(true);
 
     try {
-      // Отправляем в Telegram
-      await fetch('https://functions.poehali.dev/3e921b18-247b-45a8-a7e5-730802648b9a', {
+      // Отправляем сообщение боту Suvvy
+      const response = await fetch('https://functions.poehali.dev/a6fc0e6d-052a-48fb-8f88-fd9cd4e46ea9', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: userMessageText,
+          name: userName,
+          phone: userPhone,
+          session_id: sessionId
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success && data.response) {
+        // Обновляем session_id если изменился
+        if (data.session_id) {
+          setSessionId(data.session_id);
+        }
+
+        // Добавляем ответ бота
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: data.response,
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+      } else {
+        // Резервный ответ при ошибке
+        const botMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          text: 'Извините, произошла ошибка. Попробуйте еще раз.',
+          sender: 'bot',
+          timestamp: new Date()
+        };
+        setMessages(prev => [...prev, botMessage]);
+      }
+
+      // Дополнительно отправляем в Telegram для уведомления
+      fetch('https://functions.poehali.dev/3e921b18-247b-45a8-a7e5-730802648b9a', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -66,22 +109,21 @@ export default function LiveChat() {
         body: JSON.stringify({
           name: userName,
           phone: userPhone,
-          message: `💬 Сообщение в чате:\n${inputText}`
+          message: `💬 Сообщение в чате:\n${userMessageText}`
         }),
-      });
+      }).catch(() => {});
 
-      // Добавляем автоответ
-      setTimeout(() => {
-        const botMessage: Message = {
-          id: (Date.now() + 1).toString(),
-          text: 'Спасибо за сообщение! Наш менеджер свяжется с вами в ближайшее время.',
-          sender: 'bot',
-          timestamp: new Date()
-        };
-        setMessages(prev => [...prev, botMessage]);
-      }, 1000);
     } catch (error) {
       console.error('Error sending message:', error);
+      
+      // Резервный ответ при ошибке сети
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: 'Спасибо за сообщение! Мы получили вашу заявку и свяжемся с вами в ближайшее время.',
+        sender: 'bot',
+        timestamp: new Date()
+      };
+      setMessages(prev => [...prev, botMessage]);
     } finally {
       setIsSending(false);
     }
