@@ -1,0 +1,38 @@
+{
+  "tests": [
+    {
+      "name": "Test webhook test_request",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "event_type": "test_request"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "status": "ok"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Test webhook new_messages",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "event_type": "new_messages",
+        "chat_id": "test-chat-123",
+        "new_messages": [
+          {
+            "type": "text",
+            "message_sender": "ai",
+            "text": "Привет! Как я могу помочь?"
+          }
+        ]
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "status": "ok"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
