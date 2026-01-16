@@ -1,14 +1,7 @@
 import Icon from '@/components/ui/icon';
+import ContactForm from '@/components/ContactForm';
 
 export default function CTASection() {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      const chatButton = document.querySelector('[aria-label="Открыть чат"]') as HTMLButtonElement;
-      if (chatButton) chatButton.click();
-    }, 800);
-  };
-
   return (
     <section id="contact-form" className="py-20 bg-gradient-to-br from-primary to-blue-600 text-white">
       <div className="container mx-auto px-4">
@@ -20,13 +13,7 @@ export default function CTASection() {
             Получите бесплатное демо AI-бота для вашего автосалона!
           </p>
           
-          <button
-            onClick={scrollToTop}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-bold rounded-lg hover:bg-blue-50 transition-all transform hover:scale-105 shadow-xl text-lg"
-          >
-            <Icon name="MessageCircle" size={24} />
-            Написать в чат
-          </button>
+          <ContactForm />
 
           <div className="mt-12 grid md:grid-cols-2 gap-6">
             <div className="p-6 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 relative overflow-hidden">
