@@ -12,11 +12,15 @@ def handler(event: dict, context) -> dict:
             'statusCode': 200,
             'headers': {
                 'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'POST, OPTIONS',
+                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
                 'Access-Control-Allow-Headers': 'Content-Type, Authorization'
             },
             'body': ''
         }
+    
+    # GET - получение новых сообщений для фронтенда
+    if method == 'GET':
+        return get_new_messages(event)
 
     if method != 'POST':
         return {
@@ -172,17 +176,35 @@ def handle_suvvy_webhook(body: dict, event: dict) -> dict:
     
     print(f'Received {len(new_messages)} messages from Suvvy for chat {chat_id}')
     
-    # Логируем сообщения (здесь можно сохранить в БД или отправить через WebSocket)
-    for msg in new_messages:
-        msg_type = msg.get('type', 'text')
-        sender = msg.get('message_sender', 'ai')
+    # Сохраняем сообщения в БД
+    try:
+        import psycopg2
+        db_url = os.environ.get('DATABASE_URL', '')
         
-        if msg_type == 'text':
-            text = msg.get('text', '')
-            print(f'[{chat_id}] {sender}: {text}')
-        else:
-            file_info = msg.get('file', {})
-            print(f'[{chat_id}] {sender} sent {msg_type}: {file_info.get("name", "file")}')
+        if db_url:
+            conn = psycopg2.connect(db_url)
+            cursor = conn.cursor()
+            
+            for msg in new_messages:
+                msg_type = msg.get('type', 'text')
+                sender = msg.get('message_sender', 'ai')
+                text = msg.get('text', '')
+                file_info = msg.get('file', {})
+                file_url = file_info.get('url', '') if file_info else ''
+                file_name = file_info.get('name', '') if file_info else ''
+                
+                cursor.execute(
+                    "INSERT INTO suvvy_messages (chat_id, message_type, message_sender, text, file_url, file_name) VALUES (%s, %s, %s, %s, %s, %s)",
+                    (chat_id, msg_type, sender, text, file_url, file_name)
+                )
+                
+                print(f'[{chat_id}] {sender}: {text or file_name}')
+            
+            conn.commit()
+            cursor.close()
+            conn.close()
+    except Exception as e:
+        print(f'DB error: {str(e)}')
     
     # Возвращаем успех (обязательно 200-299!)
     return {
@@ -194,3 +216,76 @@ def handle_suvvy_webhook(body: dict, event: dict) -> dict:
             'chat_id': chat_id
         })
     }
+
+def get_new_messages(event: dict) -> dict:
+    '''Получение непрочитанных сообщений для фронтенда'''
+    query_params = event.get('queryStringParameters', {}) or {}
+    chat_id = query_params.get('chat_id', '')
+    
+    if not chat_id:
+        return {
+            'statusCode': 400,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': 'chat_id required'})
+        }
+    
+    try:
+        import psycopg2
+        db_url = os.environ.get('DATABASE_URL', '')
+        
+        conn = psycopg2.connect(db_url)
+        cursor = conn.cursor()
+        
+        # Получаем непрочитанные сообщения
+        cursor.execute(
+            "SELECT id, message_type, message_sender, text, file_url, file_name, created_at FROM suvvy_messages WHERE chat_id = %s AND is_read = FALSE ORDER BY created_at ASC",
+            (chat_id,)
+        )
+        
+        rows = cursor.fetchall()
+        messages = []
+        
+        for row in rows:
+            msg_id, msg_type, sender, text, file_url, file_name, created_at = row
+            messages.append({
+                'id': msg_id,
+                'type': msg_type,
+                'sender': sender,
+                'text': text,
+                'file_url': file_url,
+                'file_name': file_name,
+                'timestamp': created_at.isoformat() if created_at else None
+            })
+            
+            # Помечаем как прочитанное
+            cursor.execute("UPDATE suvvy_messages SET is_read = TRUE WHERE id = %s", (msg_id,))
+        
+        conn.commit()
+        cursor.close()
+        conn.close()
+        
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({
+                'success': True,
+                'messages': messages
+            })
+        }
+        
+    except Exception as e:
+        print(f'Get messages error: {str(e)}')
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'body': json.dumps({'error': str(e)})
+        }

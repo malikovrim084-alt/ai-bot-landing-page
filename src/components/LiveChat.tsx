@@ -35,6 +35,39 @@ export default function LiveChat() {
     scrollToBottom();
   }, [messages]);
 
+  // Polling для получения новых сообщений от Suvvy
+  useEffect(() => {
+    if (!isStarted || !sessionId) return;
+
+    const pollMessages = async () => {
+      try {
+        const response = await fetch(
+          `https://functions.poehali.dev/a6fc0e6d-052a-48fb-8f88-fd9cd4e46ea9?chat_id=${sessionId}`,
+          { method: 'GET' }
+        );
+        const data = await response.json();
+
+        if (data.success && data.messages && data.messages.length > 0) {
+          // Добавляем новые сообщения от бота
+          const newMessages: Message[] = data.messages.map((msg: any) => ({
+            id: `bot-${msg.id}`,
+            text: msg.text || msg.file_name || 'Файл',
+            sender: 'bot' as const,
+            timestamp: new Date(msg.timestamp || Date.now())
+          }));
+
+          setMessages(prev => [...prev, ...newMessages]);
+        }
+      } catch (error) {
+        console.error('Error polling messages:', error);
+      }
+    };
+
+    // Запускаем polling каждые 3 секунды
+    const interval = setInterval(pollMessages, 3000);
+    return () => clearInterval(interval);
+  }, [isStarted, sessionId]);
+
   const handleStartChat = () => {
     if (!userName.trim() || !userPhone.trim()) {
       alert('Пожалуйста, заполните все поля');
