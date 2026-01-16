@@ -29,37 +29,39 @@ export default function LiveChat() {
     scrollToBottom();
   }, [messages]);
 
-  // Polling для получения новых сообщений от Suvvy
+  // Функция для получения новых сообщений
+  const pollMessages = async () => {
+    if (!isStarted || !sessionId) return;
+
+    try {
+      const response = await fetch(
+        `https://functions.poehali.dev/a6fc0e6d-052a-48fb-8f88-fd9cd4e46ea9?chat_id=${sessionId}`,
+        { method: 'GET' }
+      );
+      const data = await response.json();
+
+      if (data.success && data.messages && data.messages.length > 0) {
+        // Добавляем новые сообщения от бота
+        const newMessages: Message[] = data.messages.map((msg: any) => ({
+          id: `bot-${msg.id}`,
+          text: msg.text || msg.file_name || 'Файл',
+          sender: 'bot' as const,
+          timestamp: new Date(msg.timestamp || Date.now())
+        }));
+
+        setMessages(prev => [...prev, ...newMessages]);
+        setIsTyping(false);
+      }
+    } catch (error) {
+      console.error('Error polling messages:', error);
+    }
+  };
+
+  // Polling для получения новых сообщений от Suvvy (каждую секунду)
   useEffect(() => {
     if (!isStarted || !sessionId) return;
 
-    const pollMessages = async () => {
-      try {
-        const response = await fetch(
-          `https://functions.poehali.dev/a6fc0e6d-052a-48fb-8f88-fd9cd4e46ea9?chat_id=${sessionId}`,
-          { method: 'GET' }
-        );
-        const data = await response.json();
-
-        if (data.success && data.messages && data.messages.length > 0) {
-          // Добавляем новые сообщения от бота
-          const newMessages: Message[] = data.messages.map((msg: any) => ({
-            id: `bot-${msg.id}`,
-            text: msg.text || msg.file_name || 'Файл',
-            sender: 'bot' as const,
-            timestamp: new Date(msg.timestamp || Date.now())
-          }));
-
-          setMessages(prev => [...prev, ...newMessages]);
-          setIsTyping(false);
-        }
-      } catch (error) {
-        console.error('Error polling messages:', error);
-      }
-    };
-
-    // Запускаем polling каждые 3 секунды
-    const interval = setInterval(pollMessages, 3000);
+    const interval = setInterval(pollMessages, 1000);
     return () => clearInterval(interval);
   }, [isStarted, sessionId]);
 
@@ -109,7 +111,10 @@ export default function LiveChat() {
         setSessionId(data.session_id);
       }
 
-      // Сообщения от бота придут через polling, не добавляем их здесь
+      // Сразу проверяем новые сообщения (не ждём polling)
+      setTimeout(() => pollMessages(), 500);
+      setTimeout(() => pollMessages(), 2000);
+      setTimeout(() => pollMessages(), 5000);
 
       // Дополнительно отправляем в Telegram для уведомления
       fetch('https://functions.poehali.dev/3e921b18-247b-45a8-a7e5-730802648b9a', {
