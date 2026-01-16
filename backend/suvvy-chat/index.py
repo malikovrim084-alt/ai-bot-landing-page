@@ -58,17 +58,17 @@ def handler(event: dict, context) -> dict:
             'body': json.dumps({'error': 'Suvvy not configured'})
         }
 
-    # Отправляем сообщение в Suvvy API
+    # Отправляем сообщение в Suvvy API (правильный endpoint)
     try:
-        suvvy_url = 'https://api.suvvy.ai/v1/chat'
+        # Извлекаем токен из формата cc-xxxxx
+        suvvy_url = f'https://www.suvvy.ai/api/dialogue/{suvvy_token}'
         
+        # Формат для Suvvy: history_id для сохранения истории диалога
         payload = {
             'message': user_message,
-            'session_id': session_id,
-            'user_data': {
-                'name': user_name,
-                'phone': user_phone
-            }
+            'history_id': session_id or f'chat-{user_phone}',
+            'user_name': user_name,
+            'user_phone': user_phone
         }
         
         data = json.dumps(payload).encode('utf-8')
@@ -77,17 +77,16 @@ def handler(event: dict, context) -> dict:
             suvvy_url,
             data=data,
             headers={
-                'Content-Type': 'application/json',
-                'Authorization': f'Bearer {suvvy_token}'
+                'Content-Type': 'application/json'
             },
             method='POST'
         )
         
-        with urllib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req, timeout=30) as response:
             result = json.loads(response.read().decode('utf-8'))
             
-            bot_response = result.get('response', result.get('message', 'Извините, не могу ответить прямо сейчас.'))
-            new_session_id = result.get('session_id', session_id)
+            # Suvvy возвращает ответ в поле 'response' или 'text'
+            bot_response = result.get('response', result.get('text', 'Спасибо за сообщение!'))
             
             return {
                 'statusCode': 200,
@@ -98,7 +97,7 @@ def handler(event: dict, context) -> dict:
                 'body': json.dumps({
                     'success': True,
                     'response': bot_response,
-                    'session_id': new_session_id
+                    'session_id': payload['history_id']
                 })
             }
             
