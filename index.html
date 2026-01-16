@@ -92,6 +92,16 @@
 <div id="root"></div>
 <script type="module" src="/src/main.tsx"></script>
 
+<!-- VK Widget -->
+<script type="text/javascript" src="https://vk.com/js/api/openapi.js?169"></script>
+<script type="text/javascript">
+  VK.Widgets.CommunityMessages("vk_community_messages", YOUR_GROUP_ID, {
+    expandTimeout: "10000",
+    tooltipButtonText: "Есть вопрос?"
+  });
+</script>
+<div id="vk_community_messages"></div>
+<!-- /VK Widget -->
 
 </body>
 </html>
