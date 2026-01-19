@@ -4,7 +4,7 @@ import ContactForm from '@/components/ContactForm';
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
+    <section id="hero" className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white py-20 md:py-32">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center animate-fade-in mb-12">
