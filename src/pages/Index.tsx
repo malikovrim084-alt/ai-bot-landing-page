@@ -15,8 +15,8 @@ export default function Index() {
   const [chatsPerMonth, setChatsPerMonth] = useState(300);
 
   const calculateProfit = () => {
-    const currentLeads = Math.round(chatsPerMonth * 0.14);
-    const newLeads = Math.round(chatsPerMonth * 0.25);
+    const currentLeads = Math.round(chatsPerMonth * 0.70);
+    const newLeads = Math.round(chatsPerMonth * 0.87);
     const additionalLeads = newLeads - currentLeads;
     const sales = Math.round(additionalLeads * 0.15);
     const profit = sales * 50000;

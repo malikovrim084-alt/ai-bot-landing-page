@@ -13,13 +13,13 @@ export default function HeroSection() {
               <span>Для автосалонов • Отвечает за 10 секунд • 24/7</span>
             </div>
             <h1 className="font-heading text-4xl md:text-6xl font-bold bg-gradient-to-r from-foreground to-primary bg-clip-text text-transparent mb-6 leading-tight">
-              Ваш автосалон теряет 75% продаж каждый месяц
+              Ваш автосалон теряет 30% клиентов каждый месяц
             </h1>
             <h2 className="font-heading text-2xl md:text-3xl font-semibold text-foreground/80 mb-6">
               Пока менеджеры спят — клиенты уходят к конкурентам
             </h2>
             <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-              AI-бот отвечает на Авито 24/7 за 10 секунд, собирает номера телефонов и передаёт горячие заявки менеджерам. Продажи растут на 75% без найма сотрудников.
+              AI-бот отвечает на Авито 24/7 за 10 секунд, собирает номера телефонов и передаёт горячие заявки менеджерам. Конверсия в лиды растёт с 70% до 87% без найма сотрудников.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8">
               <Button 
