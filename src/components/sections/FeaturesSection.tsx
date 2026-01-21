@@ -35,8 +35,8 @@ export default function FeaturesSection() {
     },
     { 
       icon: 'TrendingUp', 
-      title: '+157% конверсии', 
-      desc: 'Реальная статистика роста конверсии с 0,14% до 0,36%' 
+      title: '+40-50% лидов', 
+      desc: 'Стабильный рост количества заявок без увеличения бюджета на рекламу' 
     },
     { 
       icon: 'Rocket', 

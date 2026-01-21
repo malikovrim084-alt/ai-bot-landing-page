@@ -54,7 +54,7 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
                 <div className="bg-red-50 p-6 rounded-lg border border-red-200">
                   <p className="text-sm text-muted-foreground mb-2">БЕЗ AI-бота</p>
                   <p className="text-4xl font-bold text-red-600">{stats.currentLeads}</p>
-                  <p className="text-sm text-muted-foreground mt-1">лидов в месяц (было 170-190)</p>
+                  <p className="text-sm text-muted-foreground mt-1">лидов в месяц</p>
                 </div>
               </div>
 
@@ -62,7 +62,7 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
                 <div className="bg-green-50 p-6 rounded-lg border border-green-200">
                   <p className="text-sm text-muted-foreground mb-2">С AI-ботом</p>
                   <p className="text-4xl font-bold text-green-600">{stats.newLeads}</p>
-                  <p className="text-sm text-muted-foreground mt-1">лидов в месяц (стало 250-270)</p>
+                  <p className="text-sm text-muted-foreground mt-1">лидов в месяц</p>
                 </div>
               </div>
             </div>
