@@ -37,22 +37,10 @@ export default function Header() {
               </a>
             ))}
           </nav>
-          <div className="flex items-center gap-4">
-            <a href="tel:+79870266416" className="hidden md:flex items-center gap-2 text-foreground hover:text-primary transition-colors font-semibold">
-              <Icon name="Phone" size={20} />
-              +7 987 026 6416
-            </a>
-            <div className="flex flex-col items-end">
-              <Button 
-                size="sm"
-                onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
-                className="animate-pulse hover:animate-none"
-              >
-                Заказать демо
-              </Button>
-              <span className="text-xs text-muted-foreground mt-1">Ответим за 15 минут</span>
-            </div>
-          </div>
+          <a href="tel:+79870266416" className="flex items-center gap-2 text-foreground hover:text-primary transition-colors font-semibold">
+            <Icon name="Phone" size={20} />
+            <span className="hidden md:inline">+7 987 026 6416</span>
+          </a>
         </div>
       </div>
     </header>

@@ -49,10 +49,10 @@ export default function HeroSection() {
                 AI-бот отвечает на Авито 24/7 за 10 секунд, собирает номера телефонов и передаёт горячие заявки менеджерам. <span className="font-semibold text-gray-900">Рост лидов на 40-50%</span> без увеличения рекламного бюджета.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <div className="flex flex-col gap-4 mb-8">
                 <Button 
                   size="lg" 
-                  className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+                  className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all animate-pulse hover:animate-none"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).ym) {
                       (window as any).ym(106250852, 'reachGoal', 'click_callback');
@@ -64,45 +64,49 @@ export default function HeroSection() {
                   Заказать обратный звонок
                 </Button>
                 
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="text-base px-8 py-6 rounded-full border-2 hover:bg-gray-50"
-                  asChild
-                >
-                  <a 
-                    href="https://t.me/khurmapro_bot" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2"
-                    onClick={() => {
-                      if (typeof window !== 'undefined' && (window as any).ym) {
-                        (window as any).ym(106250852, 'reachGoal', 'click_try_bot_hero');
-                      }
-                    }}
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="text-base px-6 py-6 rounded-full border-2 hover:bg-gray-50"
+                    asChild
                   >
-                    <Icon name="MessageCircle" size={20} />
-                    Попробовать бота
-                  </a>
-                </Button>
-              </div>
+                    <a 
+                      href="https://t.me/khurmapro_bot" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2"
+                      onClick={() => {
+                        if (typeof window !== 'undefined' && (window as any).ym) {
+                          (window as any).ym(106250852, 'reachGoal', 'click_try_bot_hero');
+                        }
+                      }}
+                    >
+                      <Icon name="MessageCircle" size={20} />
+                      Попробовать бота
+                    </a>
+                  </Button>
 
-              <div className="flex flex-wrap gap-3">
-                <button
-                  onClick={() => scrollToSection('calculator')}
-                  className="inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors font-medium"
-                >
-                  <Icon name="Calculator" size={18} />
-                  Калькулятор
-                </button>
-                <span className="text-gray-300">•</span>
-                <button
-                  onClick={() => scrollToSection('results')}
-                  className="inline-flex items-center gap-2 text-gray-600 hover:text-primary transition-colors font-medium"
-                >
-                  <Icon name="TrendingUp" size={18} />
-                  Результаты
-                </button>
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="text-base px-6 py-6 rounded-full border-2 hover:bg-gray-50"
+                    onClick={() => scrollToSection('calculator')}
+                  >
+                    <Icon name="Calculator" size={20} className="mr-2" />
+                    Калькулятор
+                  </Button>
+
+                  <Button 
+                    size="lg"
+                    variant="outline"
+                    className="text-base px-6 py-6 rounded-full border-2 hover:bg-gray-50"
+                    onClick={() => scrollToSection('results')}
+                  >
+                    <Icon name="TrendingUp" size={20} className="mr-2" />
+                    Результаты
+                  </Button>
+                </div>
               </div>
             </div>
 
