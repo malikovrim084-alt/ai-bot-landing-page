@@ -1,7 +1,22 @@
+import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function HeroSection() {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+      } else {
+        videoRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -88,16 +103,31 @@ export default function HeroSection() {
 
             <div className="order-1 md:order-2">
               <div className="flex flex-col items-center">
-                <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl mb-6">
+                <div className="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl mb-6 group">
                   <video
+                    ref={videoRef}
                     src="https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/07c10242-2663-4b84-8902-10c7e8a346f2.MOV"
-                    controls
                     loop
                     playsInline
                     className="w-full h-full object-cover"
+                    onClick={togglePlay}
                   >
                     Ваш браузер не поддерживает видео
                   </video>
+                  
+                  {/* Кастомная кнопка play/pause */}
+                  <button
+                    onClick={togglePlay}
+                    className="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <div className="w-20 h-20 bg-white/90 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+                      <Icon 
+                        name={isPlaying ? "Pause" : "Play"} 
+                        size={32} 
+                        className="text-orange-500"
+                      />
+                    </div>
+                  </button>
                 </div>
                 
                 <div className="text-center">
