@@ -4,10 +4,7 @@ import Icon from '@/components/ui/icon';
 export default function Header() {
   const menuItems = [
     { label: 'Главная', href: '#hero' },
-    { label: 'Проблема', href: '#problems' },
-    { label: 'Результаты', href: '#results' },
-    { label: 'Калькулятор', href: '#calculator' },
-    { label: 'Демо', href: '#contact-form' },
+    { label: 'Цены', href: '#pricing' },
     { label: 'Контакты', href: '#footer' },
   ];
 
