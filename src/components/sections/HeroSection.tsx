@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
@@ -6,6 +6,7 @@ export default function HeroSection() {
   const [videoUrl, setVideoUrl] = useState<string>('');
   const [showUrlInput, setShowUrlInput] = useState(false);
   const [inputUrl, setInputUrl] = useState('');
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     // ВСЕГДА загружаем видео из S3 при каждом обновлении страницы
@@ -30,6 +31,16 @@ export default function HeroSection() {
     
     loadVideo();
   }, []);
+
+  // Автовоспроизведение при загрузке видео
+  useEffect(() => {
+    if (videoUrl && videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play().catch(e => {
+        console.log('Автовоспроизведение заблокировано:', e.message);
+      });
+    }
+  }, [videoUrl]);
 
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
@@ -129,11 +140,19 @@ export default function HeroSection() {
                 {videoUrl ? (
                   <div className="relative group mb-6">
                     <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-orange-500 to-orange-600 p-2">
-                      <video 
-                        src={videoUrl} 
-                        controls 
+                      <video
+                        ref={videoRef}
+                        key={videoUrl}
+                        controls
+                        autoPlay
+                        muted
+                        playsInline
+                        loop
                         className="w-full h-full object-cover rounded-full"
+                        onError={(e) => console.error('Ошибка загрузки видео:', e)}
+                        onLoadedData={() => console.log('Видео загружено и готово')}
                       >
+                        <source src={videoUrl} type="video/quicktime" />
                         Ваш браузер не поддерживает видео
                       </video>
                     </div>
