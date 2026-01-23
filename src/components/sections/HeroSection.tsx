@@ -88,8 +88,17 @@ export default function HeroSection() {
 
             <div className="order-1 md:order-2">
               <div className="flex flex-col items-center">
-                <div className="w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center shadow-2xl mb-6">
-                  <Icon name="Bot" className="text-white" size={120} />
+                <div className="w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl mb-6">
+                  <video
+                    src="https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/07c10242-2663-4b84-8902-10c7e8a346f2.MOV"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                  >
+                    Ваш браузер не поддерживает видео
+                  </video>
                 </div>
                 
                 <div className="text-center">
