@@ -10,21 +10,27 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Загружаем видео из S3
-    const loadVideo = async () => {
-      try {
-        const response = await fetch('https://functions.poehali.dev/8dddbd14-ed51-48be-a2e0-089dfbd42d93');
-        const data = await response.json();
-        
-        if (data.success && data.videos && data.videos.length > 0) {
-          setVideoUrl(data.videos[0].url);
-        }
-      } catch (err) {
-        console.error('Ошибка загрузки видео:', err);
-      }
-    };
+    // Сначала пробуем загрузить видео из проекта (папка public)
+    const localVideo = '/hero-video.mp4';
     
-    loadVideo();
+    // Проверяем, существует ли локальное видео
+    fetch(localVideo, { method: 'HEAD' })
+      .then(response => {
+        if (response.ok) {
+          // Локальное видео найдено
+          setVideoUrl(localVideo);
+        } else {
+          // Если локального нет, загружаем из S3
+          return fetch('https://functions.poehali.dev/8dddbd14-ed51-48be-a2e0-089dfbd42d93')
+            .then(res => res.json())
+            .then(data => {
+              if (data.success && data.videos && data.videos.length > 0) {
+                setVideoUrl(data.videos[0].url);
+              }
+            });
+        }
+      })
+      .catch(err => console.error('Ошибка загрузки видео:', err));
   }, []);
 
   // Автовоспроизведение при загрузке видео
