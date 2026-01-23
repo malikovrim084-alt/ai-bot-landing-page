@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import VideoUploader from '@/components/VideoUploader';
 
 export default function HeroSection() {
   const [videoUrl, setVideoUrl] = useState<string>('');
@@ -9,9 +10,21 @@ export default function HeroSection() {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
-    // Используем прямую ссылку на видео
-    const videoUrl = 'https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/d80c1f5e-5ca7-4b15-9585-066cf519c718.MOV';
-    setVideoUrl(videoUrl);
+    // Загружаем видео из S3
+    const loadVideo = async () => {
+      try {
+        const response = await fetch('https://functions.poehali.dev/8dddbd14-ed51-48be-a2e0-089dfbd42d93');
+        const data = await response.json();
+        
+        if (data.success && data.videos && data.videos.length > 0) {
+          setVideoUrl(data.videos[0].url);
+        }
+      } catch (err) {
+        console.error('Ошибка загрузки видео:', err);
+      }
+    };
+    
+    loadVideo();
   }, []);
 
   // Автовоспроизведение при загрузке видео
@@ -180,13 +193,17 @@ export default function HeroSection() {
                       ) : (
                         <>
                           <p className="text-white text-lg font-semibold mb-4">Добавьте видео</p>
-                          <Button
-                            onClick={() => setShowUrlInput(true)}
-                            className="bg-white text-orange-600 hover:bg-gray-100 rounded-full"
-                          >
-                            <Icon name="Link" size={18} className="mr-2" />
-                            Вставить ссылку
-                          </Button>
+                          <div className="flex flex-col gap-3">
+                            <VideoUploader onVideoUploaded={(url) => setVideoUrl(url)} />
+                            <Button
+                              onClick={() => setShowUrlInput(true)}
+                              variant="outline"
+                              className="bg-transparent border-white text-white hover:bg-white/10 rounded-full"
+                            >
+                              <Icon name="Link" size={18} className="mr-2" />
+                              Или вставить ссылку
+                            </Button>
+                          </div>
                         </>
                       )}
                     </div>
