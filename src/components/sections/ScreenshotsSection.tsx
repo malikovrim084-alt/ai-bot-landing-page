@@ -115,24 +115,12 @@ export default function ScreenshotsSection() {
                   <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg group-hover:scale-110 transition-transform">
                     <Icon name="Maximize2" size={20} className="text-red-500" />
                   </div>
-                  <div className="absolute top-4 left-4 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-                    <Icon name="XCircle" size={16} />
-                    <span>Плохо</span>
-                  </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute left-1/2 -translate-x-1/2 -top-12 flex items-center gap-4">
-              <div className="h-px w-20 bg-gradient-to-r from-transparent to-orange-300"></div>
-              <div className="bg-orange-500 text-white p-3 rounded-full shadow-lg animate-bounce">
-                <Icon name="ArrowDown" size={24} />
-              </div>
-              <div className="h-px w-20 bg-gradient-to-l from-transparent to-orange-300"></div>
-            </div>
-
+          <div>
             <div className="flex items-center justify-center gap-4 mb-8">
               <div className="flex items-center gap-3 bg-green-50 px-6 py-3 rounded-2xl border-2 border-green-200">
                 <div className="bg-green-500 p-2 rounded-lg">
@@ -169,10 +157,6 @@ export default function ScreenshotsSection() {
                   </div>
                   <div className="absolute top-4 right-4 bg-white rounded-full p-2 shadow-lg group-hover:scale-110 transition-transform">
                     <Icon name="Maximize2" size={20} className="text-green-500" />
-                  </div>
-                  <div className="absolute top-4 left-4 bg-green-500 text-white px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 shadow-lg">
-                    <Icon name="CheckCircle2" size={16} />
-                    <span>Хорошо</span>
                   </div>
                 </div>
               ))}
