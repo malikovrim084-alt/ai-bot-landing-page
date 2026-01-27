@@ -68,8 +68,6 @@ export default function Index() {
       
       <ResultsSection />
       
-      <ComparisonSection />
-      
       <CalculatorSection 
         chatsPerMonth={chatsPerMonth} 
         setChatsPerMonth={setChatsPerMonth} 
