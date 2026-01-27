@@ -57,6 +57,48 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
               </div>
             </div>
 
+            <div className="grid md:grid-cols-2 gap-6 mb-8">
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-center mb-3">БЕЗ AI-бота</h3>
+                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <p className="text-sm text-muted-foreground mb-1">Лидов в месяц</p>
+                  <p className="text-3xl font-bold text-red-600">{stats.leadsWithoutBot}</p>
+                </div>
+                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <p className="text-sm text-muted-foreground mb-1">Продаж в месяц</p>
+                  <p className="text-3xl font-bold text-red-600">{stats.salesWithoutBot}</p>
+                </div>
+                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <p className="text-sm text-muted-foreground mb-1">Прибыль в месяц</p>
+                  <p className="text-2xl font-bold text-red-600">{stats.profitWithoutBot.toLocaleString()} ₽</p>
+                </div>
+                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
+                  <p className="text-sm text-muted-foreground mb-1">Прибыль в год</p>
+                  <p className="text-2xl font-bold text-red-600">{stats.profitYearWithoutBot.toLocaleString()} ₽</p>
+                </div>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-center mb-3">С AI-ботом</h3>
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <p className="text-sm text-muted-foreground mb-1">Лидов в месяц</p>
+                  <p className="text-3xl font-bold text-green-600">{stats.leadsWithBot}</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <p className="text-sm text-muted-foreground mb-1">Продаж в месяц</p>
+                  <p className="text-3xl font-bold text-green-600">{stats.salesWithBot}</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <p className="text-sm text-muted-foreground mb-1">Прибыль в месяц</p>
+                  <p className="text-2xl font-bold text-green-600">{stats.profitWithBot.toLocaleString()} ₽</p>
+                </div>
+                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+                  <p className="text-sm text-muted-foreground mb-1">Прибыль в год</p>
+                  <p className="text-2xl font-bold text-green-600">{stats.profitYearWithBot.toLocaleString()} ₽</p>
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-4">
               <div className="bg-gradient-to-r from-primary to-orange-500 p-6 rounded-lg text-white text-center">
                 <p className="text-sm mb-2">🚀 Рост прибыли</p>
