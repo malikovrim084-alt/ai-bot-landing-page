@@ -7,29 +7,36 @@ export default function PricingSection() {
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-12">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold text-center mb-8">
               Стоимость
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <Card className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Rocket" className="text-primary" size={32} />
+            <Card className="p-10 text-center bg-gradient-to-br from-primary/5 to-white border-2 border-primary/20">
+              <div className="w-20 h-20 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Icon name="Calculator" className="text-primary" size={40} />
+              </div>
+              <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4">
+                Формируем стоимость индивидуально под ваш проект
+              </h3>
+              <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
+                Каждый автосалон уникален: разное количество обращений, каналы коммуникации и процессы продаж. Мы составим предложение именно для вашего бизнеса после бесплатного аудита.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4 mt-8">
+                <div className="flex items-center gap-2 text-sm md:text-base">
+                  <Icon name="Check" className="text-green-600" size={20} />
+                  <span className="font-medium">Без переплат за лишние функции</span>
                 </div>
-                <h3 className="font-heading text-2xl font-bold mb-2">Старт (внедрение)</h3>
-                <p className="text-4xl font-bold text-primary mb-2">100 000 ₽</p>
-                <p className="text-muted-foreground">Разовый платеж</p>
-              </Card>
-              <Card className="p-8 text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Icon name="RefreshCw" className="text-primary" size={32} />
+                <div className="flex items-center gap-2 text-sm md:text-base">
+                  <Icon name="Check" className="text-green-600" size={20} />
+                  <span className="font-medium">Учитываем объём обращений</span>
                 </div>
-                <h3 className="font-heading text-2xl font-bold mb-2">Поддержка</h3>
-                <p className="text-4xl font-bold text-primary mb-2">30 000 ₽</p>
-                <p className="text-muted-foreground">В месяц</p>
-              </Card>
-            </div>
-            <p className="text-center text-muted-foreground mt-8">
-              *Точный расчет после аудита вашего проекта
+                <div className="flex items-center gap-2 text-sm md:text-base">
+                  <Icon name="Check" className="text-green-600" size={20} />
+                  <span className="font-medium">Гибкая система оплаты</span>
+                </div>
+              </div>
+            </Card>
+            <p className="text-center text-muted-foreground mt-6 text-sm">
+              Узнайте точную стоимость для вашего автосалона — оставьте заявку на бесплатный аудит
             </p>
           </div>
         </div>
