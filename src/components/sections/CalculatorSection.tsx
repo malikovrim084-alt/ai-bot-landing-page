@@ -57,48 +57,6 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
-              <div className="space-y-4">
-                <h3 className="text-lg font-bold text-center mb-3">БЕЗ AI-бота</h3>
-                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <p className="text-sm text-muted-foreground mb-1">Лидов в месяц</p>
-                  <p className="text-3xl font-bold text-red-600">{stats.leadsWithoutBot}</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <p className="text-sm text-muted-foreground mb-1">Продаж в месяц</p>
-                  <p className="text-3xl font-bold text-red-600">{stats.salesWithoutBot}</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <p className="text-sm text-muted-foreground mb-1">Прибыль в месяц</p>
-                  <p className="text-2xl font-bold text-red-600">{stats.profitWithoutBot.toLocaleString()} ₽</p>
-                </div>
-                <div className="bg-red-50 p-4 rounded-lg border border-red-200">
-                  <p className="text-sm text-muted-foreground mb-1">Прибыль в год</p>
-                  <p className="text-2xl font-bold text-red-600">{stats.profitYearWithoutBot.toLocaleString()} ₽</p>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h3 className="text-lg font-bold text-center mb-3">С AI-ботом</h3>
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <p className="text-sm text-muted-foreground mb-1">Лидов в месяц</p>
-                  <p className="text-3xl font-bold text-green-600">{stats.leadsWithBot}</p>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <p className="text-sm text-muted-foreground mb-1">Продаж в месяц</p>
-                  <p className="text-3xl font-bold text-green-600">{stats.salesWithBot}</p>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <p className="text-sm text-muted-foreground mb-1">Прибыль в месяц</p>
-                  <p className="text-2xl font-bold text-green-600">{stats.profitWithBot.toLocaleString()} ₽</p>
-                </div>
-                <div className="bg-green-50 p-4 rounded-lg border border-green-200">
-                  <p className="text-sm text-muted-foreground mb-1">Прибыль в год</p>
-                  <p className="text-2xl font-bold text-green-600">{stats.profitYearWithBot.toLocaleString()} ₽</p>
-                </div>
-              </div>
-            </div>
-
             <div className="space-y-4">
               <div className="bg-gradient-to-r from-primary to-orange-500 p-6 rounded-lg text-white text-center">
                 <p className="text-sm mb-2">🚀 Рост прибыли</p>
@@ -119,19 +77,6 @@ export default function CalculatorSection({ chatsPerMonth, setChatsPerMonth, sta
           </Card>
 
           <div className="text-center">
-            <Button 
-              size="lg" 
-              className="px-8 py-6 text-lg mb-4"
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).ym) {
-                  (window as any).ym(106250852, 'reachGoal', 'calculator_get_pdf_click');
-                }
-                document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              <Icon name="FileText" className="mr-2" size={20} />
-              Получить подробный расчёт в PDF
-            </Button>
             <p className="text-lg font-semibold text-primary mb-2">
               Окупаемость &lt; 2 недель
             </p>
