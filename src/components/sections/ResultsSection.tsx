@@ -115,10 +115,10 @@ export default function ResultsSection() {
                 <Icon name="MessageCircle" className="text-white" size={32} />
               </div>
               <h3 className="font-heading text-2xl md:text-3xl font-bold mb-3">
-                Попробуйте AI-бота прямо сейчас!
+                Присоединяйтесь к сообществу!
               </h3>
               <p className="text-base md:text-lg mb-6 text-blue-100">
-                Тестовый бот продавец-консультант автосалона уже работает в Telegram
+                Примеры работы ИИ-агентов, кейсы и полезные материалы по автоматизации продаж
               </p>
               <Button 
                 size="lg" 
@@ -126,22 +126,22 @@ export default function ResultsSection() {
                 asChild
               >
                 <a 
-                  href="https://t.me/khurmapro_bot" 
+                  href="https://vk.ru/club235378146" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="flex items-center justify-center gap-2"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).ym) {
-                      (window as any).ym(106250852, 'reachGoal', 'click_try_bot_results');
+                      (window as any).ym(106250852, 'reachGoal', 'click_vk_community');
                     }
                   }}
                 >
-                  <Icon name="Send" size={20} />
-                  ОТКРЫТЬ БОТА В TELEGRAM
+                  <Icon name="Users" size={20} />
+                  ВСТУПИТЬ В СООБЩЕСТВО ВК
                 </a>
               </Button>
               <p className="text-sm mt-4 text-blue-100">
-                Посмотрите, как бот отвечает на вопросы и собирает контакты
+                Узнайте больше о возможностях автоматизации для автосалонов
               </p>
             </div>
           </Card>
