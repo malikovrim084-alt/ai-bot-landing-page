@@ -51,7 +51,7 @@ export default function HeroSection() {
               </ul>
 
               <p className="text-base md:text-lg text-gray-600 mb-8 leading-relaxed">
-                Уведомим отдел продаж через Telegram, или изменением этапа в CRM. Реактивируйте базу без лишних затрат — просто и эффективно.
+                Уведомим отдел продаж через WhatsApp, или изменением этапа в CRM. Реактивируйте базу без лишних затрат — просто и эффективно.
               </p>
 
               <div className="flex flex-col gap-4 mb-8">
@@ -77,7 +77,7 @@ export default function HeroSection() {
                     asChild
                   >
                     <a 
-                      href="https://t.me/khurmapro_bot" 
+                      href="https://vk.ru/club235378146" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="flex items-center justify-center gap-2"

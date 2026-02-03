@@ -91,7 +91,7 @@ export default function FeaturesSection() {
               {[
                 { name: 'Сайт', items: ['Jivo', 'Tilda'], icon: 'Globe' },
                 { name: 'Авто-площадки', items: ['Авито', 'Авто.ру', 'Дром.ру'], icon: 'Car' },
-                { name: 'Мессенджеры', items: ['WhatsApp', 'Telegram'], icon: 'MessageCircle' },
+                { name: 'Мессенджеры', items: ['WhatsApp', 'VK'], icon: 'MessageCircle' },
                 { name: 'CRM', items: ['amoCRM', 'Bitrix24'], icon: 'Database' },
                 { name: 'Соцсети', items: ['VK', 'Instagram'], icon: 'Share2' }
               ].map((group, index) => (

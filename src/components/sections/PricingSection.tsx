@@ -52,7 +52,7 @@ export default function PricingSection() {
               {[
                 { number: '1', title: 'Бесплатный аудит автосалона', desc: 'Анализируем ваши обращения клиентов и процессы продаж' },
                 { number: '2', title: 'Демо на ваших данных БЕСПЛАТНО', desc: 'Обучаем бота на вашем автопарке и реальных диалогах' },
-                { number: '3', title: 'Запуск за 2-3 недели', desc: 'Интегрируем во все каналы: сайт, WhatsApp, Telegram, Авито' },
+                { number: '3', title: 'Запуск за 2-3 недели', desc: 'Интегрируем во все каналы: сайт, WhatsApp, VK, Авито' },
                 { number: '4', title: 'Рост лидов на 40-50%', desc: 'Получаете на 80-100 лидов больше каждый месяц без увеличения рекламы' }
               ].map((step, index) => (
                 <Card key={index} className="p-6 hover:shadow-lg transition-all">
