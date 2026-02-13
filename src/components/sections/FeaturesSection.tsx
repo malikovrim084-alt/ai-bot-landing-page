@@ -1,4 +1,5 @@
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function FeaturesSection() {
@@ -73,6 +74,21 @@ export default function FeaturesSection() {
                   <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
                 </Card>
               ))}
+            </div>
+
+            <div className="text-center mt-10">
+              <Button
+                size="lg"
+                className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).ym) {
+                    (window as any).ym(106250852, 'reachGoal', 'click_try_free');
+                  }
+                  document.getElementById('callback-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Попробовать бесплатно
+              </Button>
             </div>
           </div>
         </div>
