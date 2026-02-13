@@ -117,7 +117,7 @@ export default function HeroSection() {
 
             <div className="order-1 md:order-2">
               <div className="flex flex-col items-center">
-                <div className="relative w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl mb-6">
+                <div className="relative w-72 h-72 md:w-120 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl mb-6">
                   <video
                     ref={videoRef}
                     src="https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/07c10242-2663-4b84-8902-10c7e8a346f2.MOV"
