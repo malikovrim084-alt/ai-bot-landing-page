@@ -1,4 +1,5 @@
 import { Card } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 export default function PricingSection() {
@@ -38,6 +39,23 @@ export default function PricingSection() {
             <p className="text-center text-muted-foreground mt-6 text-sm">
               Узнайте точную стоимость для вашего автосалона — оставьте заявку на бесплатный аудит
             </p>
+            <div className="flex justify-center mt-4">
+              <Icon name="ChevronDown" className="text-primary animate-bounce" size={28} />
+            </div>
+            <div className="text-center mt-4">
+              <Button
+                size="lg"
+                className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
+                onClick={() => {
+                  if (typeof window !== 'undefined' && (window as any).ym) {
+                    (window as any).ym(106250852, 'reachGoal', 'click_get_audit');
+                  }
+                  document.getElementById('callback-form')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                Получить аудит
+              </Button>
+            </div>
           </div>
         </div>
       </section>
