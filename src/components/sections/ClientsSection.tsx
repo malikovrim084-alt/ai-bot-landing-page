@@ -3,7 +3,11 @@ export default function ClientsSection() {
     {
       name: "AutoKIPR",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/9e85ccff-e738-45ee-9274-112bb2862991.jpg",
-      clipRight: true,
+      clipStyle: "clip-path: inset(0 20% 0 0)",
+    },
+    {
+      name: "Атлантик PRO",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/24421767-410e-4e8f-992c-8280b9af7c4c.jpg",
     },
     {
       name: "Лидер Трак",
@@ -51,7 +55,8 @@ export default function ClientsSection() {
               <img
                 src={client.logo}
                 alt={client.name}
-                className={`max-h-full object-contain ${client.clipRight ? 'max-w-[85%] object-left' : 'max-w-full'}`}
+                className="max-h-full max-w-full object-contain"
+                style={client.clipStyle ? { clipPath: 'inset(0 20% 0 0)' } : undefined}
               />
             </div>
           ))}
