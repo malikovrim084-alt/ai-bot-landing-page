@@ -72,7 +72,7 @@ export default function ContactForm() {
           <Icon name="Rocket" className="text-primary" size={32} />
         </div>
         <h3 className="font-heading text-2xl font-bold text-foreground mb-2">
-          Заказать обратный звонок
+          Попробовать бота
         </h3>
         <p className="text-muted-foreground">
           Проведу бесплатный аудит вашего автосалона и расскажу, нужен ли вам ИИ-агент
@@ -135,7 +135,7 @@ export default function ContactForm() {
           ) : (
             <span className="flex items-center justify-center gap-2">
               <Icon name="Send" size={18} />
-              ЗАКАЗАТЬ ОБРАТНЫЙ ЗВОНОК
+              ПОПРОБОВАТЬ БОТА
             </span>
           )}
         </Button>
