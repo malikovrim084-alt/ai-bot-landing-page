@@ -6,7 +6,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import ExitIntentPopup from "./components/ExitIntentPopup";
 import ScrollBanner from "./components/ScrollBanner";
 
 const queryClient = new QueryClient();
@@ -25,7 +24,6 @@ const App = () => {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        <ExitIntentPopup />
         <ScrollBanner />
       </TooltipProvider>
     </QueryClientProvider>
