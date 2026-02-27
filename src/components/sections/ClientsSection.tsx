@@ -20,6 +20,22 @@ export default function ClientsSection() {
       name: "АвтоХайп с пробегом",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/cb953acf-0683-45f8-b005-8c6c700605a3.jpg",
     },
+    {
+      name: "UDMAUTO",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/97b6a75e-56a3-47d9-9640-5f59c98d6adf.jpg",
+    },
+    {
+      name: "Pioner Auto",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/4eb47541-cd28-4096-b6be-b22875814b73.jpg",
+    },
+    {
+      name: "Авто Плюс",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/1169bf2f-2dae-4da6-8b8d-b0538a5fa324.jpg",
+    },
+    {
+      name: "Абакан Авто",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/f8967ffb-7424-4a0e-ad07-bd4550c2e3df.jpg",
+    },
   ];
 
   return (
