@@ -1,4 +1,3 @@
-import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 
@@ -121,42 +120,7 @@ export default function ResultsSection() {
             ))}
           </div>
 
-          <Card className="mt-12 p-6 md:p-8 bg-gradient-to-r from-blue-600 to-primary text-white text-center">
-            <div className="max-w-2xl mx-auto">
-              <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4">
-                <Icon name="MessageCircle" className="text-white" size={32} />
-              </div>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold mb-3">
-                Протестируйте бота прямо сейчас!
-              </h3>
-              <p className="text-base md:text-lg mb-6 text-blue-100">
-                Напишите в сообщество ВК — вам ответит ИИ-бот в роли продавца автосалона
-              </p>
-              <Button 
-                size="lg" 
-                className="text-base md:text-lg px-8 md:px-10 py-5 md:py-6 bg-white text-primary hover:bg-blue-50 shadow-xl font-bold w-full md:w-auto"
-                asChild
-              >
-                <a 
-                  href="https://vk.ru/club235378146" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="flex items-center justify-center gap-2"
-                  onClick={() => {
-                    if (typeof window !== 'undefined' && (window as any).ym) {
-                      (window as any).ym(106250852, 'reachGoal', 'click_vk_community');
-                    }
-                  }}
-                >
-                  <Icon name="MessageCircle" size={20} />
-                  ПРОТЕСТИРОВАТЬ БОТА В VK
-                </a>
-              </Button>
-              <p className="text-sm mt-4 text-blue-100">
-                Задайте вопрос о машине и посмотрите, как бот консультирует клиентов
-              </p>
-            </div>
-          </Card>
+
         </div>
       </div>
     </section>
