@@ -69,17 +69,7 @@ export default function HeroSection() {
                   Попробовать бота
                 </Button>
                 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  <Button 
-                    size="lg"
-                    variant="outline"
-                    className="text-base px-6 py-6 rounded-full border-2 hover:bg-gray-50"
-                    onClick={() => scrollToSection('callback-form')}
-                  >
-                    <Icon name="MessageCircle" size={20} className="mr-2" />
-                    Попробовать бота
-                  </Button>
-
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <Button 
                     size="lg"
                     variant="outline"
