@@ -74,22 +74,10 @@ export default function HeroSection() {
                     size="lg"
                     variant="outline"
                     className="text-base px-6 py-6 rounded-full border-2 hover:bg-gray-50"
-                    asChild
+                    onClick={() => scrollToSection('callback-form')}
                   >
-                    <a 
-                      href="https://vk.ru/club235378146" 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                      onClick={() => {
-                        if (typeof window !== 'undefined' && (window as any).ym) {
-                          (window as any).ym(106250852, 'reachGoal', 'click_try_bot_hero');
-                        }
-                      }}
-                    >
-                      <Icon name="MessageCircle" size={20} />
-                      Попробовать бота
-                    </a>
+                    <Icon name="MessageCircle" size={20} className="mr-2" />
+                    Попробовать бота
                   </Button>
 
                   <Button 
