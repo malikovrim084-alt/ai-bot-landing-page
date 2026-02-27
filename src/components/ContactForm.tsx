@@ -54,32 +54,12 @@ export default function ContactForm() {
       <Card className="p-8 bg-white/95 backdrop-blur-sm max-w-md mx-auto animate-scale-in">
         <div className="text-center">
           <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Icon name="Bot" className="text-white" size={32} />
+            <Icon name="CheckCircle" className="text-white" size={32} />
           </div>
-          <h3 className="text-2xl font-bold text-foreground mb-4">Протестируйте бота сами!</h3>
-          <p className="text-muted-foreground mb-6">
-            Пообщайтесь с ИИ-агентом для автосалонов и убедитесь в его эффективности на собственном опыте. Это займёт всего 2 минуты.
+          <h3 className="text-2xl font-bold text-foreground mb-4">Заявка принята!</h3>
+          <p className="text-muted-foreground">
+            Свяжемся с вами в ближайшее время для проведения бесплатного аудита.
           </p>
-          <Button
-            size="lg"
-            className="w-full text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
-            asChild
-          >
-            <a 
-              href="https://t.me/khurmapro_bot" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2"
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).ym) {
-                  (window as any).ym(106250852, 'reachGoal', 'click_try_bot_success');
-                }
-              }}
-            >
-              <Icon name="MessageCircle" size={20} />
-              Попробовать бота
-            </a>
-          </Button>
         </div>
       </Card>
     );
