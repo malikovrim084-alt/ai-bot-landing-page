@@ -3,6 +3,7 @@ export default function ClientsSection() {
     {
       name: "AutoKIPR",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/9e85ccff-e738-45ee-9274-112bb2862991.jpg",
+      clipRight: true,
     },
     {
       name: "Лидер Трак",
@@ -48,12 +49,12 @@ export default function ClientsSection() {
           {clients.map((client) => (
             <div
               key={client.name}
-              className="flex items-center justify-center h-16 w-44 grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
+              className="flex items-center justify-center h-16 w-44 overflow-hidden grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
             >
               <img
                 src={client.logo}
                 alt={client.name}
-                className="max-h-full max-w-full object-contain"
+                className={`max-h-full object-contain ${client.clipRight ? 'max-w-[85%] object-left' : 'max-w-full'}`}
               />
             </div>
           ))}
