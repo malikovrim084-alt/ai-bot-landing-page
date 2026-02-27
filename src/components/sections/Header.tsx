@@ -5,6 +5,7 @@ export default function Header() {
   const menuItems = [
     { label: 'Главная', href: '#hero' },
     { label: 'Цена', href: '#pricing' },
+    { label: 'Наши клиенты', href: '#clients' },
     { label: 'Контакты', href: '#footer' },
   ];
 

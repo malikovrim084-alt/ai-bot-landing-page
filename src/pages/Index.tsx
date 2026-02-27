@@ -62,8 +62,6 @@ export default function Index() {
       <Header />
       
       <HeroSection />
-
-      <ClientsSection />
       
       <ScreenshotsSection />
       
@@ -78,6 +76,8 @@ export default function Index() {
       />
       
       <PricingSection />
+
+      <ClientsSection />
       
       <section id="callback-form" className="py-20 bg-gradient-to-b from-gray-50 to-white">
         <div className="container mx-auto px-4">

@@ -41,7 +41,7 @@ export default function ClientsSection() {
   ];
 
   return (
-    <section className="py-12 bg-white border-y border-gray-100">
+    <section id="clients" className="py-12 bg-white border-y border-gray-100">
       <div className="container mx-auto px-4">
         <p className="text-center text-sm font-medium text-gray-400 uppercase tracking-widest mb-8">
           Нам доверяют
