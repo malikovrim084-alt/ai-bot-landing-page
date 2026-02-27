@@ -10,6 +10,7 @@ import CalculatorSection from '@/components/sections/CalculatorSection';
 import PricingSection from '@/components/sections/PricingSection';
 import ContactForm from '@/components/ContactForm';
 import CTASection from '@/components/sections/CTASection';
+import ClientsSection from '@/components/sections/ClientsSection';
 import Footer from '@/components/sections/Footer';
 
 export default function Index() {
@@ -61,6 +62,8 @@ export default function Index() {
       <Header />
       
       <HeroSection />
+
+      <ClientsSection />
       
       <ScreenshotsSection />
       
