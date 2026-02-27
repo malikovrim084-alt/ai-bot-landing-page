@@ -9,10 +9,7 @@ export default function ClientsSection() {
       name: "Лидер Трак",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/2e02a5c2-b52b-410c-8af4-9c119be6c4ca.jpg",
     },
-    {
-      name: "Атлантик PRO",
-      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/1389fe01-df41-43d9-88a7-6a9a0b4550b8.jpg",
-    },
+
     {
       name: "Компания Автомобилия",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/369efa90-dde7-4a62-be39-ee379f716414.jpg",
