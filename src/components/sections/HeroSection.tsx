@@ -66,7 +66,7 @@ export default function HeroSection() {
                   }}
                 >
                   <Icon name="Phone" size={20} className="mr-2" />
-                  Попробовать бота
+                  Попробовать бота бесплатно
                 </Button>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
