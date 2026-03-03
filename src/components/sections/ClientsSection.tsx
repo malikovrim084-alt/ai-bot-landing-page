@@ -38,6 +38,14 @@ export default function ClientsSection() {
       name: "Абакан Авто",
       logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/f8967ffb-7424-4a0e-ad07-bd4550c2e3df.jpg",
     },
+    {
+      name: "Imperial Auto",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/c8644d2d-0f9e-4264-9178-1b146cd97552.jpg",
+    },
+    {
+      name: "Imperial Import",
+      logo: "https://cdn.poehali.dev/projects/a342f07f-f1f9-4615-b861-611d73a35a53/bucket/61ca6eb1-69b3-4e0a-85cb-3c1a5c02461e.jpg",
+    },
   ];
 
   return (
