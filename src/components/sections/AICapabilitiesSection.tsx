@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 interface CapabilityItem {
@@ -215,17 +214,6 @@ const categories: Category[] = [
   },
 ];
 
-const bottomIcons = [
-  { icon: 'Car', label: 'Каталог', color: 'bg-orange-100 text-orange-600' },
-  { icon: 'ShoppingBag', label: 'Площадки', color: 'bg-blue-100 text-blue-600' },
-  { icon: 'Monitor', label: 'Сайт', color: 'bg-emerald-100 text-emerald-600' },
-  { icon: 'Send', label: 'Мессенджеры', color: 'bg-violet-100 text-violet-600' },
-  { icon: 'CalendarCheck', label: 'Запись', color: 'bg-amber-100 text-amber-600' },
-  { icon: 'Database', label: 'CRM', color: 'bg-cyan-100 text-cyan-600' },
-  { icon: 'RefreshCcw', label: 'Допродажи', color: 'bg-rose-100 text-rose-600' },
-  { icon: 'BarChart3', label: 'Аналитика', color: 'bg-slate-100 text-slate-600' },
-];
-
 export default function AICapabilitiesSection() {
   const [activeCategory, setActiveCategory] = useState(0);
 
@@ -322,46 +310,7 @@ export default function AICapabilitiesSection() {
             </div>
           </div>
 
-          <div className="mt-16 pt-10 border-t border-gray-100">
-            <p className="text-center text-sm font-medium text-muted-foreground uppercase tracking-widest mb-8">
-              Охватывает все направления работы автосалона
-            </p>
-            <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
-              {bottomIcons.map((item, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setActiveCategory(idx)}
-                  className={`flex flex-col items-center gap-2 p-3 rounded-xl transition-all duration-300 cursor-pointer ${
-                    activeCategory === idx
-                      ? 'bg-primary/10 scale-105'
-                      : 'hover:bg-gray-50'
-                  }`}
-                >
-                  <div
-                    className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center transition-transform group-hover:scale-110`}
-                  >
-                    <Icon name={item.icon} size={26} />
-                  </div>
-                  <span className="text-xs font-medium text-gray-600">{item.label}</span>
-                </button>
-              ))}
-            </div>
-          </div>
 
-          <div className="text-center mt-12">
-            <Button
-              size="lg"
-              className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all"
-              onClick={() => {
-                if (typeof window !== 'undefined' && (window as any).ym) {
-                  (window as any).ym(106250852, 'reachGoal', 'click_try_free');
-                }
-                document.getElementById('callback-form')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Попробовать бесплатно
-            </Button>
-          </div>
         </div>
       </div>
     </section>
