@@ -3,6 +3,7 @@ import Header from '@/components/sections/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import Icon from '@/components/ui/icon';
 import FeaturesSection from '@/components/sections/FeaturesSection';
+import AICapabilitiesSection from '@/components/sections/AICapabilitiesSection';
 import ResultsSection from '@/components/sections/ResultsSection';
 import ScreenshotsSection from '@/components/sections/ScreenshotsSection';
 import ComparisonSection from '@/components/sections/ComparisonSection';
@@ -66,6 +67,8 @@ export default function Index() {
       <ScreenshotsSection />
       
       <FeaturesSection />
+      
+      <AICapabilitiesSection />
       
       <ResultsSection />
       
