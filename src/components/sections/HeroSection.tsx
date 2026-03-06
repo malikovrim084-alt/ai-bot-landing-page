@@ -60,13 +60,16 @@ export default function HeroSection() {
                   className="text-base px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all animate-pulse hover:animate-none"
                   onClick={() => {
                     if (typeof window !== 'undefined' && (window as any).ym) {
-                      (window as any).ym(106250852, 'reachGoal', 'click_callback');
+                      (window as any).ym(106250852, 'reachGoal', 'click_test_bot');
                     }
-                    scrollToSection('callback-form');
+                    const bubble = document.querySelector('[id*="suvvy"], [class*="suvvy"]') as HTMLElement;
+                    if (bubble) {
+                      bubble.click();
+                    }
                   }}
                 >
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Попробовать бота бесплатно
+                  <Icon name="MessageCircle" size={20} className="mr-2" />
+                  Протестировать бота в чате
                 </Button>
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
