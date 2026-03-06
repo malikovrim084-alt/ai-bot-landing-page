@@ -62,7 +62,9 @@ export default function HeroSection() {
                     if (typeof window !== 'undefined' && (window as any).ym) {
                       (window as any).ym(106250852, 'reachGoal', 'click_callback');
                     }
-                    scrollToSection('callback-form');
+                    if (typeof window !== 'undefined' && (window as any).suvvy) {
+                      (window as any).suvvy('open');
+                    }
                   }}
                 >
                   <Icon name="Phone" size={20} className="mr-2" />
