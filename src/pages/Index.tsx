@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Header from '@/components/sections/Header';
 import HeroSection from '@/components/sections/HeroSection';
 import Icon from '@/components/ui/icon';
-import FeaturesSection from '@/components/sections/FeaturesSection';
 import AICapabilitiesSection from '@/components/sections/AICapabilitiesSection';
 import ResultsSection from '@/components/sections/ResultsSection';
 import ScreenshotsSection from '@/components/sections/ScreenshotsSection';
@@ -65,8 +64,6 @@ export default function Index() {
       <HeroSection />
       
       <ScreenshotsSection />
-      
-      <FeaturesSection />
       
       <AICapabilitiesSection />
       
