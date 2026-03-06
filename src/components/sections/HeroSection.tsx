@@ -62,8 +62,9 @@ export default function HeroSection() {
                     if (typeof window !== 'undefined' && (window as any).ym) {
                       (window as any).ym(106250852, 'reachGoal', 'click_callback');
                     }
-                    if (typeof window !== 'undefined' && (window as any).suvvy) {
-                      (window as any).suvvy('open');
+                    const bubble = document.getElementById('suvvy-bubble');
+                    if (bubble) {
+                      bubble.click();
                     }
                   }}
                 >
