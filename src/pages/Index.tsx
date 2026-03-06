@@ -63,9 +63,9 @@ export default function Index() {
       
       <HeroSection />
       
-      <ScreenshotsSection />
-      
       <AICapabilitiesSection />
+      
+      <ScreenshotsSection />
       
       <ResultsSection />
       
